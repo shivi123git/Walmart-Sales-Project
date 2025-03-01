@@ -93,9 +93,8 @@ from wmsales
 group by product_line
 order by avg_rating desc;
 
------------ -------------------------------Sales-------------------------------------------
----------------------------------------------------------------------------------------------
---------- -----1. Number of sales made in each time of the day per weekday--------
+----------- -------------------------------Sales---------------------------------------------------------------------------------------------------------------------------------------
+-----1. Number of sales made in each time of the day per weekday--------
 select
 	time_of_day,
     count(*) as total_sales
@@ -111,7 +110,7 @@ select
 from wmsales
 group by customer_type
 order by total_revenue;
---------------------------- 3. Which city has the largest tax percent/ VAT (**Value Added Tax**)?--
+------------------ 3. Which city has the largest tax percent/ VAT (**Value Added Tax**)?--
 select
 	city,
     avg(VAT) as value_added_tax
@@ -126,8 +125,7 @@ from wmsales
 group by customer_type
 order by value_added_tax desc;
 
--------------------------------------------------------------------------------------------
-------------------------------- -------Customer ----------------------------
+------------------------------------------Customer ---------------------------------------------------
 ------------- 1. How many unique customer types does the data have?----------
 select
 	distinct (customer_type)
@@ -211,12 +209,12 @@ where branch= "A"
 group by day_name
 order by avg_rating desc;
 
---------------------- Revenue & Profit Calculation----------------------------------------------
---------------------------------------------------------------------------------------
+--------------------- Revenue & Profit Calculation--------------------------------------------
 ------ $ total(gross_sales) 
 select
 	sum(VAT+cogs) as total_grass_sales
 from  wmsales;
+
 ----- gross profit-----------
 SELECT 
 	(SUM(VAT + COGS) - COGS) 
